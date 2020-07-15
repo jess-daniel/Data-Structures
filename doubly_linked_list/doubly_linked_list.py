@@ -64,9 +64,9 @@ class DoublyLinkedList:
         # decrement the len of DLL
         self.length -= 1
         # delete the head
-        if head.next is not None:
-            self.head.prev = None
-            head = head.next
+        if self.head.next is not None:
+            self.head.next.prev = None
+            self.head = self.head.next
         else:
             self.head = None
             self.tail = None
@@ -77,7 +77,7 @@ class DoublyLinkedList:
                 # set head to none
                 # set tail to none
         # return the value
-        return head
+        return head.value
 
         # value = self.head.value
         # self.delete(self.head)
