@@ -57,12 +57,30 @@ class BSTNode:
     def get_max(self):
         # left side don't matter
         # iterate through nodes using a loop 
-        pass
+        if self.right is None:
+            return self.value
+        max_value = self.right.value
+        while self.right is not None:
+            if self.right.right is None:
+                return self.right.value
+            elif max_value < self.right.right.value:
+                return self.right.right.value
+            else:
+                return max_value
+        return max_value
+        
 
     # Call the function `fn` on the value of each node
     def for_each(self, fn):
         # recursive solution
-        pass
+        fn(self.value)
+        if self.right is not None:
+            fn(self.right.value)
+            self.right.for_each(fn)
+        if self.left is not None:
+            fn(self.left.value)
+            self.left.for_each(fn)
+
 
     # Part 2 -----------------------
 
